@@ -61,7 +61,9 @@ apt-get install -y wget && \
 wget http://easycwmp.org/download/easycwmp-1.5.2.tar.gz && \
 tar -xzvf easycwmp-1.5.2.tar.gz  && \
 mv easycwmp-1.5.2 easycwmp && \
-cd /opt/dev/easycwmp/ && \
+rm /opt/dev/easycwmp/ext/openwrt/config/easycwmp
+ADD easycwmp /opt/dev/easycwmp/ext/openwrt/config/
+RUN cd /opt/dev/easycwmp/ && \
 apt-get install -y libcurl4-gnutls-dev && \
 autoreconf -i && \
 ./configure --enable-debug --enable-devel --enable-acs=multi --enable-jsonc=1 && \
